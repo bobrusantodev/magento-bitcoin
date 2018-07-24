@@ -1,5 +1,7 @@
 Bitcoin. For Magento.
 ==================================
+
+
 This is a Bitcoin payment module for Magento.
 
 I wrote this module to help promote Bitcoin and to enable vendors to trade goods for bitcoin. While I believe this module
@@ -7,21 +9,10 @@ is the most fully featured Magento Bitcoin module available at the moment, pleas
 
 I'm looking forward to feedback from vendors who are accepting Bitcoin.
 
--Ticean
-
-
-
-DONATIONS
----------------------------
-If you find this module useful please consider donating an appropriate amount. It helps me justify the time spent coding
-to my wife and two daughters! :)
-
-12rJSmj7Ny5LzDGkgfauC2T8TZuwNZ3xaC
-
-
 
 Current Features
 ---------------------------
+
 
 - New bitcoin currency and symbol. Full currency support in Magento.
 - Currency conversion and conversion rates management. Manually, or daily weighted value from Bitcoincharts service.
@@ -50,9 +41,10 @@ Planned Features
 - Hell of a lot more...
 
 
-
 Installation
 -----------------------------------------------------
+
+
 I plan to add better documentation to the Wiki. Please be sure to backup files and data before modifying your Magento instance.
 
 - Copy the files from this project into your Magento root.
@@ -68,21 +60,11 @@ I plan to add better documentation to the Wiki. Please be sure to backup files a
 - The module customizes the order confirmation page. You may need to integrate the changes if you've already customized that page.
 
 
-
 Feedback & Contributing
 ---------------------------
+
+
 All feedback is welcome. I'm especially looking forward to feedback from Magento store owners. If you have a feature you'd
 like to see implemented please let me know.
 
 Developers, please feel free to comment and contribute. I'll gladly pull reasonable changes and you will be credited.
-
-
-
-Licensing
----------------------------
-
-Copyright 2011, Ticean Bennett
-
-This work is licensed under the Open Software License (OSL 3.0)
-
-http://opensource.org/licenses/osl-3.0.php
