@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+
 <!--
 /**
  * Magento
@@ -24,9 +25,10 @@
  * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
-
 -->
+
 <layout version="0.1.0">
+    
     <!--
     <adminhtml_bitcoin_dashboard_index>
         <reference name="content">
@@ -34,6 +36,7 @@
         </reference>
     </adminhtml_bitcoin_dashboard_index>
     -->
+    
     <bitcoin_admin_validate>
         <remove name="header" />
         <remove name="menu" />
