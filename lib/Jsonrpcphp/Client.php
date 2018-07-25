@@ -27,6 +27,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @author sergio <jsonrpcphp@inservibile.org>
  */
+
 class Jsonrpcphp_Client {
 	
 	/**
@@ -34,6 +35,7 @@ class Jsonrpcphp_Client {
 	 *
 	 * @var boolean
 	 */
+	
 	private $debug;
 	
 	/**
@@ -41,26 +43,29 @@ class Jsonrpcphp_Client {
 	 *
 	 * @var string
 	 */
+	
 	private $url;
 	/**
 	 * The request id
 	 *
 	 * @var integer
 	 */
+	
 	private $id;
 	/**
 	 * If true, notifications are performed instead of requests
 	 *
 	 * @var boolean
 	 */
-	private $notification = false;
 	
+	private $notification = false;
 	/**
 	 * Takes the connection parameters
 	 *
 	 * @param string $url
 	 * @param boolean $debug
 	 */
+	
 	public function __construct($url,$debug = false) {
 		// server URL
 		$this->url = $url;
@@ -77,6 +82,7 @@ class Jsonrpcphp_Client {
 	 *
 	 * @param boolean $notification
 	 */
+	
 	public function setRPCNotification($notification) {
 		empty($notification) ?
 							$this->notification = false
@@ -91,29 +97,31 @@ class Jsonrpcphp_Client {
 	 * @param array $params
 	 * @return array
 	 */
+	
 	public function __call($method,$params) {
 		
-		// check
+// check
 		if (!is_scalar($method)) {
 			throw new Exception('Method name has no scalar value');
 		}
 		
-		// check
+// check
 		if (is_array($params)) {
-			// no keys
+// no keys
+			
 			$params = array_values($params);
 		} else {
 			throw new Exception('Params must be given as array');
 		}
 		
-		// sets notification or request task
+// sets notification or request task
 		if ($this->notification) {
 			$currentId = NULL;
 		} else {
 			$currentId = $this->id;
 		}
 		
-		// prepares the request
+// prepares the request
 		$request = array(
 						'method' => $method,
 						'params' => $params,
@@ -122,7 +130,7 @@ class Jsonrpcphp_Client {
 		$request = json_encode($request);
 		$this->debug && $this->debug.='***** Request *****'."\n".$request."\n".'***** End Of request *****'."\n\n";
 		
-		// performs the HTTP POST
+// performs the HTTP POST
 		$opts = array ('http' => array (
 							'method'  => 'POST',
 							'header'  => 'Content-type: application/json',
@@ -140,12 +148,12 @@ class Jsonrpcphp_Client {
 			throw new Exception('Unable to connect to '.$this->url);
 		}
 		
-		// debug output
+// debug output
 		if ($this->debug) {
 			echo nl2br($debug);
 		}
 		
-		// final checks and return
+// final checks and return
 		if (!$this->notification) {
 			// check
 			if ($response['id'] != $currentId) {
@@ -154,10 +162,8 @@ class Jsonrpcphp_Client {
 			if (!is_null($response['error'])) {
 				throw new Exception('Request error: '.$response['error']);
 			}
-			
 			return $response['result'];
-			
-		} else {
+	} else {
 			return true;
 		}
 	}
